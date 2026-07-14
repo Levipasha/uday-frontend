@@ -274,7 +274,7 @@ function App() {
   const hasText = inputText.trim().length > 0;
 
   return (
-    <div className="relative flex flex-col justify-between min-h-[100dvh] bg-[#0b0f19] text-[#f3f4f6] px-4 md:px-8">
+    <div className="fixed inset-0 flex flex-col justify-between bg-[#0b0f19] text-[#f3f4f6] px-4 md:px-8 h-[100dvh] w-screen overflow-hidden">
       {/* Background Glowing Accents */}
       <div className="bg-glow bg-glow-1"></div>
       <div className="bg-glow bg-glow-2"></div>
@@ -322,8 +322,8 @@ function App() {
       </header>
 
       {/* Main chat viewport */}
-      <main className="flex-1 flex flex-col justify-end w-full max-w-2xl mx-auto py-8">
-        <div className="w-full space-y-4 overflow-y-auto max-h-[calc(100vh-280px)] pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+      <main className="flex-grow overflow-y-auto overflow-x-hidden w-full max-w-2xl mx-auto py-4 scrollbar-none">
+        <div className="space-y-4 pr-1 pb-4">
           <AnimatePresence initial={false}>
             {messages.map((msg) => (
               <motion.div
@@ -469,10 +469,6 @@ function App() {
             {inputText.length}/{maxCharCount} characters
           </div>
         </form>
-
-        <p className="mt-8 text-center text-xs text-white/20" style={{ fontFamily: "'League Spartan', sans-serif" }}>
-          &copy; 2026 uday (ARTARTIST). GPU-Powered TTS voice cloning via Cartesia.
-        </p>
       </footer>
     </div>
   );
